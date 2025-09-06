@@ -70,7 +70,7 @@ class TUReq16EmissaoDaFaturaTests {
 	}
 
 @Test
-	void ct04_quando_dados_invalidos_retorna_msg_erro() {
+	void ct05_quando_dados_invalidos_retorna_msg_erro() {
 		try {
 			// dado que as informacoes sao invalidas
 			LocalDate dataVencimento = LocalDate.parse("02/10/2026", formatter);
@@ -80,7 +80,7 @@ class TUReq16EmissaoDaFaturaTests {
 			// entao retorna mensagem de erro
 			
 		} catch (Exception e) {
-			logger.info(">>>>>> ct04 - mensagem de erro => " + e.getMessage());
+			logger.info(">>>>>> ct05 - mensagem de erro => " + e.getMessage());
 			assertEquals("CPF invalido", e.getMessage());
         }
 
