@@ -45,10 +45,47 @@ class TUReq16EmissaoDaFaturaTests {
 			// entao retorna mensagem de erro
 			
 		} catch (Exception e) {
-			logger.info(">>>>>> ct01 - nao deveria falhar => " + e.getMessage());
+			logger.info(">>>>>> ct02 - mensagem de erro=> " + e.getMessage());
 			assertEquals("CPF invalido", e.getMessage());
         }
 
 	}
+
+	//Aula Remota 05/09
+	@Test
+	void ct03_quando_dados_invalidos_retorna_msg_erro() {
+		try {
+			// dado que as informacoes sao invalidas
+			LocalDate dataVencimento = LocalDate.parse("02/10/2026", formatter);
+			// quando confirmo a fatura
+			fatura = new Fatura("", dataVencimento, "moveis planejados", "1000.50");
+			fail("Deveria falhar");
+			// entao retorna mensagem de erro
+			
+		} catch (Exception e) {
+			logger.info(">>>>>> ct03 - mensagem de erro => " + e.getMessage());
+			assertEquals("CPF invalido", e.getMessage());
+        }
+
+	}
+
+@Test
+	void ct04_quando_dados_invalidos_retorna_msg_erro() {
+		try {
+			// dado que as informacoes sao invalidas
+			LocalDate dataVencimento = LocalDate.parse("02/10/2026", formatter);
+			// quando confirmo a fatura
+			fatura = new Fatura("123.456.789-00", dataVencimento, "moveis planejados", "1000.50");
+			fail("Deveria falhar");
+			// entao retorna mensagem de erro
+			
+		} catch (Exception e) {
+			logger.info(">>>>>> ct04 - mensagem de erro => " + e.getMessage());
+			assertEquals("CPF invalido", e.getMessage());
+        }
+
+	}
+
+
 	
 }
